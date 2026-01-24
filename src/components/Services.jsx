@@ -1,21 +1,26 @@
 import React, { useRef } from 'react';
 import { gsap } from 'gsap';
+import { Code, Palette, Bot, Zap } from 'lucide-react';
 
 const services = [
     {
         title: "Web Development",
+        icon: Code,
         gradient: "linear-gradient(135deg, #E3FB29, #9EFF00)"
     },
     {
         title: "UI/UX Design",
+        icon: Palette,
         gradient: "linear-gradient(135deg, #E3FB29, #B4FF4D)"
     },
     {
         title: "AI Automation",
+        icon: Bot,
         gradient: "linear-gradient(135deg, #E3FB29, #7CFF00)"
     },
     {
         title: "Branding",
+        icon: Zap,
         gradient: "linear-gradient(135deg, #E3FB29, #C8FF6A)"
     }
 ];
@@ -31,14 +36,19 @@ const ServiceCard = ({ service }) => {
         gsap.to(cardRef.current, { y: 0, duration: 0.3, ease: "power2.out", boxShadow: "none" });
     };
 
+    const Icon = service.icon;
+
     return (
         <div
             ref={cardRef}
             onMouseEnter={onEnter}
             onMouseLeave={onLeave}
-            className="p-8 rounded-2xl w-80 h-96 flex-shrink-0 flex flex-col justify-end cursor-pointer transition-transform"
+            className="p-8 rounded-2xl w-80 h-96 flex-shrink-0 flex flex-col justify-between cursor-pointer transition-transform bg-white/5 backdrop-blur-sm border border-white/10"
             style={{ background: service.gradient }}
         >
+            <div className="w-16 h-16 rounded-full bg-black/10 flex items-center justify-center">
+                <Icon size={32} className="text-black" />
+            </div>
             <h3 className="text-2xl font-heading font-black text-black">
                 {service.title}
             </h3>
