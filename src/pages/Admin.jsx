@@ -16,7 +16,7 @@ const Admin = () => {
         // Simple client-side check first (or direct API call)
         // We will hit the API auth endpoint to verify
         try {
-            const response = await fetch('/api/admin/auth', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/auth`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ password })
@@ -36,7 +36,7 @@ const Admin = () => {
     const fetchMessages = async (pwd) => {
         setLoading(true);
         try {
-            const response = await fetch('/api/messages', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/messages`, {
                 headers: {
                     'x-admin-password': pwd || password
                 }
