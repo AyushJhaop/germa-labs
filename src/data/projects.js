@@ -1,42 +1,85 @@
 export const projects = [
     {
         id: 1,
-        title: "Blanca T-shirt",
-        subtitle: "Premium Cotton Blend",
-        description: "A premium white t-shirt made from the finest cotton blend, designed for ultimate comfort and style.",
-        image: "https://placehold.co/400x400/1a1a1a/ffffff/png?text=White+Tee", // Placeholder for white t-shirt
-        video: "",
-        link: "",
-        price: "$35",
+        title: "PandoAI",
+        subtitle: "AI-Powered Mental Wellness Platform",
+        description: "A comprehensive mental wellness web application built with Next.js 14, featuring AI-powered conversations, mood tracking, mindfulness exercises, and personalized insights.",
+        image: "/pandoai.png",
+        video: "", // Placeholder for video
+        link: "https://pando-ai-iota.vercel.app/dashboard",
         features: [
-            "Premium Cotton Blend",
-            "Breathable Fabric",
-            "Modern Fit",
-            "Durable Stitching"
+            "AI Chat Companion: Intelligent conversations with crisis detection",
+            "Mood Tracking: Daily mood check-ins with trend analysis",
+            "Mindfulness Exercises: Guided breathing and meditation",
+            "Wellness Games: Interactive games for focus and anxiety",
+            "Journal & Reflection: Digital journaling with mood correlation",
+            "Personal Insights: Analytics and progress tracking",
+            "Guest & Authenticated Modes"
         ],
         techStack: {
-            Material: ["100% Cotton", "Eco-friendly Dye"],
-            Fit: ["Regular", "Unisex"]
+            Frontend: ["Next.js 14", "React 19", "Tailwind CSS 4", "Framer Motion", "Lucide React", "Recharts"],
+            Backend: ["Next.js API Routes", "MongoDB", "Mongoose", "Clerk", "OpenRouter API"],
+            State: ["Zustand", "React Query"],
+            Development: ["TypeScript", "ESLint", "Turbopack"]
         }
     },
     {
         id: 2,
-        title: "Noir T-shirt",
-        subtitle: "Urban Night Series",
-        description: "The essential black t-shirt. Sleek, minimal, and perfect for any urban outfit.",
-        image: "https://placehold.co/400x400/1a1a1a/333333/png?text=Black+Tee", // Placeholder for black t-shirt
-        video: "",
-        link: "",
-        price: "$50",
+        title: "Lystré",
+        subtitle: "Fashion E-Commerce Platform",
+        description: "A modern, full-featured fashion e-commerce platform featuring a neobrutalism-inspired admin dashboard and an elegant customer portal.",
+        image: "/lystre.png",
+        video: "", // Placeholder
+        link: "https://lystre.vercel.app/",
         features: [
-            "Urban Night Series",
-            "Anti-fade Fabric",
-            "Slim Fit",
-            "Soft Touch"
+            "Customer Portal: Product catalog, cart, wishlist, reviews",
+            "Size Guide & AI Fit: Interactive charts and AI outfit recommendations",
+            "Admin Dashboard: Revenue metrics, inventory management",
+            "Order & Invoice Management",
+            "Neobrutalism UI Design"
         ],
         techStack: {
-            Material: ["Cotton Poly Blend"],
-            Collection: ["Night Series 2026"]
+            Framework: ["Next.js 15"],
+            Language: ["TypeScript"],
+            Styling: ["TailwindCSS", "Custom RetroUI"],
+            Database: ["PostgreSQL", "Prisma 6"],
+            State: ["Zustand"],
+            Auth: ["JWT"]
+        }
+    },
+    {
+        id: 3,
+        title: "Mojito Website",
+        subtitle: "Client Website",
+        description: "A custom website built for a client using GSAP animations.",
+        image: "/mojito.png",
+        video: "",
+        link: "https://mojito-website-gsap-five.vercel.app/",
+        features: [
+            "GSAP Animations",
+            "Custom Design",
+            "Responsive Layout"
+        ],
+        techStack: {
+            Frontend: ["React", "GSAP", "Vercel"]
+        }
+    },
+    {
+        id: 4,
+        title: "Rocarios",
+        subtitle: "AI Size Prediction & Virtual Try-On",
+        description: "Predict shoulder width, chest, and waist measurements from height to recommend clothing sizes via an API or web app.",
+        image: "/rocarios.png",
+        video: "",
+        link: "https://www.rocarios.com/",
+        features: [
+            "AI-driven size predictions",
+            "3D product models for visualization",
+            "AR-based virtual try-ons",
+            "AI chatbots for assistance"
+        ],
+        techStack: {
+            Stack: ["TypeScript", "Python (AI)", "NextJS", "AR"]
         }
     }
 ];
