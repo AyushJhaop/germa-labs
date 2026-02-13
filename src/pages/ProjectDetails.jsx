@@ -19,7 +19,7 @@ const ProjectDetails = () => {
     }
 
     return (
-        <div className="min-h-screen bg-background text-text-primary font-body selection:bg-primary selection:text-black py-20 px-4 md:px-10 lg:px-20">
+        <div className="min-h-screen bg-background text-text-primary font-body selection:bg-primary selection:text-black py-12 md:py-20 px-4 md:px-10 lg:px-20">
             <Link to="/" className="inline-flex items-center text-text-secondary hover:text-primary transition-colors mb-10">
                 <ArrowLeft className="mr-2" size={20} />
                 Back to Projects
@@ -39,18 +39,20 @@ const ProjectDetails = () => {
                 {/* Media Section */}
                 <div className="w-full aspect-video bg-[#1a1a1a] rounded-2xl overflow-hidden mb-16 border border-white/10">
                     {project.video ? (
-                        <video 
-                            src={project.video} 
-                            controls 
+                        <video
+                            src={project.video}
+                            controls
                             className="w-full h-full object-cover"
-                            poster={project.image} 
+                            poster={project.image}
                         />
                     ) : (
-                        <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            className="w-full h-full object-cover" 
-                        />
+                        <div className="w-full h-full flex items-center justify-center bg-[#1a1a1a] relative">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
                     )}
                 </div>
 
@@ -83,9 +85,9 @@ const ProjectDetails = () => {
                         {/* Links */}
                         <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
                             {project.link && (
-                                <a 
-                                    href={project.link} 
-                                    target="_blank" 
+                                <a
+                                    href={project.link}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center w-full py-4 bg-primary text-black font-bold rounded-xl hover:bg-white transition-colors mb-4"
                                 >

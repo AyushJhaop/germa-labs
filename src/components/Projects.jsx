@@ -2,71 +2,65 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+
 import { ArrowUpRight } from 'lucide-react';
 import { projects } from '../data/projects';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null);
-    const imageRef = useRef(null);
-
-    // Dynamic hover type based on index for variety
-    const hoverType = index % 2 === 0 ? "scale-glow" : "tilt-glow";
 
     const handleMouseEnter = () => {
-        if (hoverType === "scale-glow") {
-            gsap.to(cardRef.current, { scale: 1.02, duration: 0.3, ease: "power2.out", boxShadow: "0 0 30px rgba(227, 251, 41, 0.3)" });
-            gsap.to(cardRef.current, { borderColor: "#E3FB29", duration: 0.3 });
-        } else if (hoverType === "tilt-glow") {
-            gsap.to(cardRef.current, { rotationZ: index % 2 === 0 ? -2 : 2, scale: 1.02, duration: 0.3, ease: "power2.out", boxShadow: "0 0 30px rgba(227, 251, 41, 0.3)" });
-        }
+        gsap.to(cardRef.current, { scale: 1.02, duration: 0.3, ease: "power2.out", boxShadow: "0 0 30px rgba(227, 251, 41, 0.15)" });
+        gsap.to(cardRef.current, { borderColor: "#E3FB29", duration: 0.3 });
     };
 
     const handleMouseLeave = () => {
-        if (hoverType === "scale-glow") {
-            gsap.to(cardRef.current, { scale: 1, duration: 0.3, ease: "power2.out", boxShadow: "none" });
-            gsap.to(cardRef.current, { borderColor: "transparent", duration: 0.3 });
-        } else if (hoverType === "tilt-glow") {
-            gsap.to(cardRef.current, { rotationZ: 0, scale: 1, duration: 0.3, ease: "power2.out", boxShadow: "none" });
-        }
+        gsap.to(cardRef.current, { scale: 1, duration: 0.3, ease: "power2.out", boxShadow: "none" });
+        gsap.to(cardRef.current, { borderColor: "rgba(255, 255, 255, 0.1)", duration: 0.3 });
     };
 
     return (
         <div
             ref={cardRef}
-            className="group relative bg-[#1a1a1a] rounded-2xl overflow-hidden cursor-pointer border-2 border-transparent transition-colors shadow-lg"
+            className="group relative bg-[#0A0A0A] rounded-3xl p-6 cursor-pointer border border-white/10 transition-colors shadow-lg flex flex-col justify-between h-[400px]"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <div className="aspect-video overflow-hidden">
-                <img
-                    ref={imageRef}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+            {/* Top Row: Thumbnail + Link */}
+            <div className="flex justify-between items-start mb-6">
+                <div className="w-24 h-24 rounded-2xl bg-[#151515] overflow-hidden p-2">
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-contain mix-blend-screen"
+                    />
+                </div>
+
+                <Link
+                    to={`/projects/${project.id}`}
+                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:bg-white hover:text-black hover:border-transparent transition-all duration-300"
+                >
+                    <ArrowUpRight size={20} />
+                </Link>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-100 flex flex-col justify-end p-6">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300 transform">
-                    <h3 className="text-2xl font-heading font-bold text-white mb-1">
-                        {project.title}
-                    </h3>
-                    <p className="text-primary text-sm font-bold mb-2 uppercase tracking-wide">
-                        {project.subtitle}
-                    </p>
-                </div>
-                
-                <div className="flex justify-between items-end translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 transform">
-                    <p className="text-text-secondary font-body text-sm line-clamp-2 max-w-[70%]">
-                        {project.description}
-                    </p>
-                    <Link 
-                        to={`/projects/${project.id}`}
-                        className="p-3 bg-primary rounded-full text-black hover:bg-white transition-colors"
-                        title="View Details"
-                    >
-                        <ArrowUpRight size={20} />
-                    </Link>
-                </div>
+
+            {/* Content Body */}
+            <div>
+                <h3 className="text-3xl font-heading font-black text-white mb-2 leading-tight">
+                    {project.title}
+                </h3>
+                <p className="text-text-secondary text-base font-body tracking-wide opacity-80">
+                    {project.subtitle}
+                </p>
+            </div>
+
+            {/* Footer Price */}
+            <div className="mt-8">
+                <p className="text-4xl font-heading font-black text-white">
+                    {project.price}
+                </p>
             </div>
         </div>
     );
@@ -118,12 +112,12 @@ const Projects = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-24 px-4 md:px-10 lg:px-20 bg-background">
-            <div className="max-w-7xl mx-auto flex flex-col gap-20">
+        <section ref={sectionRef} className="py-16 md:py-24 px-4 md:px-10 lg:px-20 bg-background">
+            <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
 
                 <div className="flex flex-col gap-8">
                     <h2 className="text-4xl font-heading font-bold text-white mb-4">Featured <span className="text-primary opacity-80">Work</span></h2>
-                    
+
                     {/* Grid Setup mimicking original rows */}
                     <div ref={row1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {row1Projects.map((project, index) => (
@@ -132,7 +126,7 @@ const Projects = () => {
                     </div>
 
                     <div ref={row2Ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-0 md:pt-10">
-                         {row2Projects.map((project, index) => (
+                        {row2Projects.map((project, index) => (
                             <ProjectCard key={project.id} project={project} index={index + row1Projects.length} />
                         ))}
                     </div>

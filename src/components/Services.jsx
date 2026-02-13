@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Code, Palette, Bot, Zap } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
     {
@@ -43,7 +46,7 @@ const ServiceCard = ({ service }) => {
             ref={cardRef}
             onMouseEnter={onEnter}
             onMouseLeave={onLeave}
-            className="p-8 rounded-2xl w-80 h-96 flex-shrink-0 flex flex-col justify-between cursor-pointer transition-transform bg-white/5 backdrop-blur-sm border border-white/10"
+            className="p-8 rounded-2xl w-72 md:w-80 h-96 flex-shrink-0 flex flex-col justify-between cursor-pointer transition-transform bg-white/5 backdrop-blur-sm border border-white/10"
             style={{ background: service.gradient }}
         >
             <div className="flex-1 flex items-center justify-center w-full">
@@ -111,7 +114,7 @@ const Services = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-32 bg-background overflow-hidden relative">
+        <section ref={containerRef} className="py-16 md:py-32 bg-background overflow-hidden relative">
             <div className="max-w-7xl mx-auto px-4 md:px-10 lg:px-20 mb-12">
                 <h2 className="service-title text-4xl md:text-5xl font-heading font-bold text-white">
                     Our <span className="text-primary">Services</span>

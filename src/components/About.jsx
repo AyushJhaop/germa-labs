@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const About = () => {
     const sectionRef = useRef(null);
     const textRef = useRef(null);
@@ -55,8 +57,8 @@ const About = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-24 px-4 md:px-10 lg:px-20 bg-background overflow-hidden">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section ref={sectionRef} className="py-16 md:py-24 px-4 md:px-10 lg:px-20 bg-background overflow-hidden">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
                 {/* Text Column */}
                 <div ref={textRef} className="flex flex-col gap-6">

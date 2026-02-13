@@ -51,8 +51,8 @@ const Preloader = ({ onComplete }) => {
                     {/* Name Preloader Centered High Z-Index */}
                     {i === 2 && (
                         <div className="absolute inset-0 flex items-center justify-center overflow-visible">
-                            <h1 className="preloader-name text-9xl font-heading font-black text-black z-[70] opacity-0 whitespace-nowrap tracking-tighter">
-                                ZERON<span className="font-lexend font-black text-9xl">3</span>
+                            <h1 className="preloader-name text-6xl md:text-9xl font-heading font-black text-black z-[70] opacity-0 whitespace-nowrap tracking-tighter">
+                                ZERON<span className="font-lexend font-black text-6xl md:text-9xl">3</span>
                             </h1>
                         </div>
                     )}

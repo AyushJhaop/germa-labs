@@ -127,7 +127,7 @@ const Hero = () => {
             </div>
 
             {/* --- Footer Info --- */}
-            <div className="hero-footer absolute bottom-12 w-full px-8 md:px-16 flex justify-between items-end text-left z-30 pointer-events-auto cursor-auto">
+            <div className="hero-footer absolute bottom-12 w-full px-4 md:px-16 flex flex-col md:flex-row justify-between items-center md:items-end text-center md:text-left z-30 pointer-events-auto cursor-auto gap-6 md:gap-0">
                 <div className="max-w-xs">
                     <p className="text-white/60 text-sm md:text-base font-body font-medium leading-relaxed">
                         <span className="block text-white mb-2">ZERON3</span>
@@ -135,7 +135,7 @@ const Hero = () => {
                         Performance & AI.
                     </p>
                 </div>
-                <div className="flex flex-col items-end gap-2">
+                <div className="flex flex-col items-center md:items-end gap-2">
                     <button className="flex items-center gap-3 px-6 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-[#E3FB29] hover:text-black hover:border-[#E3FB29] transition-all duration-300 group">
                         <span className="text-xs font-bold tracking-widest uppercase">Start Project</span>
                         <div className="w-2 h-2 bg-[#E3FB29] rounded-full group-hover:bg-black transition-colors" />
